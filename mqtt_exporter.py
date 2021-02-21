@@ -271,7 +271,7 @@ def _update_metrics(metrics, msg):
         except ValueError:
             try:
                 logging.info(f"Trying to convert {labels['__value__']} to boolean")
-                labels['__value__'] = float(bool(labels['__value__'].lower() in ['true', 't']))
+                labels['__value__'] = float(bool(labels['__value__'].lower() in ['true', 't', 'on']))
             except ValueError:
                 logging.exception(
                     f"__value__ must be a number, was: {labels['__value__']}, Metric: {metric['name']} on __msg_topic_: {labels['__msg_topic__']}")
